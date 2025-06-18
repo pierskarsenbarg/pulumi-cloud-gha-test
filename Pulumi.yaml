@@ -1,0 +1,10 @@
+name: pulumi-cloud-gha-test
+description: A minimal Pulumi YAML program
+runtime: yaml
+resources: 
+  my-pet:
+    type: random:RandomPet
+    properties:
+      length: 2
+outputs: 
+  pet-name: ${my-pet.id}
