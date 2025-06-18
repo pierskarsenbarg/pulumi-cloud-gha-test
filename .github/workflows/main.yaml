@@ -1,0 +1,25 @@
+name: Pulumi preview
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  run_cron_job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pulumi/auth-actions@v1
+        with:
+          organization: piers-rbac-test
+          scope: test
+          requested-token-type: urn:pulumi:token-type:access_token:team
+
+      - uses: pulumi/actions@v6
+        with:
+          command: update
+          stack-name: piers-rbac-test/dev
