@@ -16,7 +16,7 @@ jobs:
             - uses: pulumi/auth-actions@v1
               with:
                 organization: piers-rbac-test
-                scope: team:GitHubTeam
+                scope: team:GitHubBot
                 requested-token-type: urn:pulumi:token-type:access_token:team
             - uses: pulumi/actions@v6
               with:
