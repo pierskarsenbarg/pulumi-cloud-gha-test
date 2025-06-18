@@ -9,7 +9,7 @@ permissions:
   contents: read
 
 jobs:
-  run_cron_job:
+  run_pulumi_update:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,7 +18,7 @@ jobs:
       - uses: pulumi/auth-actions@v1
         with:
           organization: piers-rbac-test
-          scope: test
+          scope: team:test
           requested-token-type: urn:pulumi:token-type:access_token:team
 
       - uses: pulumi/actions@v6
